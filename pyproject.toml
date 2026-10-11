@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velata"
+version = "0.1.0"
+description = "Metadata autopsy & strip — veil- and curtain-removal for files you publish. From Beethoven's opera 'Fidelio' (Leonore/Florestan), 'velata' = veiled."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "The VELATA Authors" }]
+keywords = ["metadata", "exif", "gps", "privacy", "cleanup", "osint"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: Security",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+velata = "velata.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM", "ARG", "RUF"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
